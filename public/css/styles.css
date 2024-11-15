@@ -1,5 +1,6 @@
-/* Reset básico */
-body {
+/* Vista Principal */
+ /* Reset básico */
+ body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
@@ -93,6 +94,547 @@ section {
 .contact-section .contact-info {
     margin-top: 20px;
     font-size: 16px;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f8f8;
+    padding: 30px 20px;
+    text-align: center;
+}
+footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+footer .footer-column {
+    flex: 1;
+    margin-bottom: 20px;
+}
+footer .footer-column h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+footer .footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+footer .footer-column li {
+    margin: 5px 0;
+}
+footer .footer-column a {
+    color: #666;
+    text-decoration: none;
+}
+footer .footer-column a:hover {
+    color: #000;
+}
+footer p {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 20px;
+}
+/* CSS MANTENIMIENTO */
+/* Reset básico */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.welcome {
+    font-size: 14px;
+}
+
+/* Sección de Mantenimiento */
+.maintenance-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+.maintenance-section h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.filter-container .filter-box {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.filter-container label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+.filter-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+.filter-container button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.product-card img {
+    max-width: 100px;
+    margin-bottom: 15px;
+}
+.product-card h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.product-card p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #666;
+}
+.product-card .price {
+    font-size: 14px;
+    font-weight: bold;
+    color: green;
+}
+.product-card a {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.product-card a:hover {
+    background-color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f8f8;
+    padding: 30px 20px;
+    text-align: center;
+}
+footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+footer .footer-column {
+    flex: 1;
+    margin-bottom: 20px;
+}
+footer .footer-column h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+footer .footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+footer .footer-column li {
+    margin: 5px 0;
+}
+footer .footer-column a {
+    color: #666;
+    text-decoration: none;
+}
+footer .footer-column a:hover {
+    color: #000;
+}
+footer p {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 20px;
+}
+/* CSS INSTALACIONES */
+ /* Reset básico */
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.welcome {
+    font-size: 14px;
+}
+
+/* Sección de Instalaciones */
+.installations-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+.installations-section h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.filter-container .filter-box {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.filter-container label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+}
+.filter-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+.filter-container button {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.product-card img {
+    max-width: 100px;
+    margin-bottom: 15px;
+}
+.product-card h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.product-card p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #666;
+}
+.product-card .price {
+    font-size: 14px;
+    font-weight: bold;
+    color: green;
+}
+.product-card a {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.product-card a:hover {
+    background-color: #555;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f8f8;
+    padding: 30px 20px;
+    text-align: center;
+}
+footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+footer .footer-column {
+    flex: 1;
+    margin-bottom: 20px;
+}
+footer .footer-column h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+footer .footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+footer .footer-column li {
+    margin: 5px 0;
+}
+footer .footer-column a {
+    color: #666;
+    text-decoration: none;
+}
+footer .footer-column a:hover {
+    color: #000;
+}
+footer p {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+/*CSS SERVICOS*/
+
+ /* Reset básico */
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.welcome {
+    font-size: 14px;
+}
+
+/* Sección de Servicios */
+.services-section {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+.services-section h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.services-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.service-card {
+    background-color: #000;
+    color: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    flex: 1;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.service-card h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.service-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+.service-card a {
+    display: inline-block;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+.service-card a:hover {
+    background-color: #ccc;
+}
+.service-card img {
+    max-width: 50px;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f8f8;
+    padding: 30px 20px;
+    text-align: center;
+}
+footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+footer .footer-column {
+    flex: 1;
+    margin-bottom: 20px;
+}
+footer .footer-column h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+footer .footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+footer .footer-column li {
+    margin: 5px 0;
+}
+footer .footer-column a {
+    color: #666;
+    text-decoration: none;
+}
+footer .footer-column a:hover {
+    color: #000;
+}
+footer p {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+/* CSS NOSOTROS */
+
+ /* Reset básico */
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.welcome {
+    font-size: 14px;
+}
+
+/* Sección Nosotros */
+.about-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+.about-section h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.about-text {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: justify;
+    color: #333;
+}
+.about-logo {
+    flex: 1;
+    text-align: center;
+}
+.about-logo img {
+    max-width: 200px;
 }
 
 /* Footer */
