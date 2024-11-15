@@ -1,0 +1,137 @@
+/* Reset básico */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+nav {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+.welcome {
+    font-size: 14px;
+}
+
+/* Sección de Presentación */
+section {
+    padding: 50px 20px;
+    text-align: center;
+}
+.presentation-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.presentation-logo {
+    flex: 1;
+    text-align: center;
+}
+.presentation-logo img {
+    max-width: 150px;
+}
+.presentation-text {
+    flex: 1;
+    text-align: center;
+}
+.presentation-text h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+.presentation-text p {
+    color: #666;
+    margin: 15px 0;
+}
+.presentation-text a {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Sección de Contacto */
+.contact-section {
+    background-color: #000;
+    color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+}
+.contact-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+.contact-section p {
+    color: #ccc;
+    margin: 20px 0;
+}
+.contact-section a {
+    background-color: #25D366;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.contact-section .contact-info {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Footer */
+footer {
+    background-color: #f8f8f8;
+    padding: 30px 20px;
+    text-align: center;
+}
+footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+footer .footer-column {
+    flex: 1;
+    margin-bottom: 20px;
+}
+footer .footer-column h3 {
+    font-size: 18px;
+    font-weight: bold;
+}
+footer .footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+footer .footer-column li {
+    margin: 5px 0;
+}
+footer .footer-column a {
+    color: #666;
+    text-decoration: none;
+}
+footer .footer-column a:hover {
+    color: #000;
+}
+footer p {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 20px;
+}
