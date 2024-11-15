@@ -9,6 +9,13 @@ use App\Http\Controllers\InformesController;
 use App\Http\Controllers\Dashboard2Controller;
 use App\Http\Controllers\PresuController;
 
+
+use App\Http\Controllers\VistaPrincipalController;
+use App\Http\Controllers\ServiciosController;
+use App\Http\Controllers\MantenimientoController;
+use App\Http\Controllers\NosotrosController;
+use App\Http\Controllers\InstalacionesController;
+
 Route::get('/', function () {
     return view('principal'); 
 })->name('principal');
@@ -78,3 +85,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 //pdf
 Route::get('/informes/pdf/{id}', [InformesController::class, 'generatePDF'])->name('informes.pdf');
+
+//vista cliente
+Route::get('/vistaprincipal', [VistaPrincipalController::class, 'index'])->name('vistaprincipal');
+Route::get('/servicios', [ServiciosController::class, 'index'])->name('services');
+Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('mantenimiento');
+Route::get('/nosotros', [NosotrosController::class, 'index'])->name('about');
+Route::get('/instalaciones', [InstalacionesController::class, 'index'])->name('instalaciones');
