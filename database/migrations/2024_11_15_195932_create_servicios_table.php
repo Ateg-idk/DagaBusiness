@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('apellidos');
             $table->string('email');
             $table->string('telefono');
-            $table->enum('servicio', ['Instalación de cámaras', 'Rejas eléctricas', 'Mantenimiento de seguridad']); // 3 opciones
+            $table->enum('servicio', ['Cámaras ', 'Controles', 'Componentes Extras','Intercomunicadores']); 
             $table->text('descripcion');
             $table->timestamps();
         });

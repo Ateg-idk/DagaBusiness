@@ -23,7 +23,7 @@ class ServicioController
         'apellidos' => 'required',
         'email' => 'required|email',
         'telefono' => 'required',
-        'servicio' => 'required|in:Instalación de cámaras,Rejas eléctricas,Mantenimiento de seguridad',
+        'servicio' => 'required|in:Cámara,Controles,Componentes Extras,Intercomunicadores',
         'descripcion' => 'required',
     ]);
 

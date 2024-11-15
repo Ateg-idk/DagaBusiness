@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Usuario; // Importar el modelo Usuario
-use Illuminate\Support\Facades\Crypt; // Importar Crypt para AES
-
 
 abstract class Controller
 {
@@ -31,22 +29,12 @@ class AuthController extends Controller
         $user = Usuario::where('correoUsuario', $credentials['email'])->first();
     
         if ($user) {
-            try {
-                // Desencriptar la contraseña usando una consulta SQL cruda
-                $decryptedPassword = DB::table('usuario')
-                    ->selectRaw("CAST(AES_DECRYPT(passwordUsuario, 'AES') AS CHAR) AS passwordUsuario")
-                    ->where('correoUsuario', $credentials['email'])
-                    ->first();
-    
-                if ($decryptedPassword && $credentials['password'] === $decryptedPassword->passwordUsuario) {
-                    Auth::loginUsingId($user->idUsuario);
-                    session(['nombre' => $user->nombre, 'imagen' => $user->imagen]);
-                    return redirect()->route('dashboard2');
-                } else {
-                    return redirect()->route('principal')->withErrors(['message' => 'Datos incorrectos']);
-                }
-            } catch (\Exception $e) {
-                return redirect()->route('principal')->withErrors(['message' => 'Error al desencriptar la contraseña']);
+            if ($credentials['password'] === $user->passwordUsuario) {
+                Auth::loginUsingId($user->idUsuario);
+                session(['nombre' => $user->nombre, 'imagen' => $user->imagen]);
+                return redirect()->route('dashboard2');
+            } else {
+                return redirect()->route('principal')->withErrors(['message' => 'Datos incorrectos']);
             }
         } else {
             return redirect()->route('principal')->withErrors(['message' => 'Datos incorrectos']);
@@ -54,11 +42,11 @@ class AuthController extends Controller
     }
 
     public function logout(Request $request)
-{
-    Auth::logout();
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
 
-    return redirect()->route('principal');
-}
+        return redirect()->route('principal');
+    }
 }
