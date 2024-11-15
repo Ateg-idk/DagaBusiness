@@ -16,6 +16,9 @@ use App\Http\Controllers\MantenimientoController;
 use App\Http\Controllers\NosotrosController;
 use App\Http\Controllers\InstalacionesController;
 
+use App\Http\Controllers\ServicioController;
+use App\Http\Controllers\ProductoController;
+
 Route::get('/', function () {
     return view('principal'); 
 })->name('principal');
@@ -92,3 +95,11 @@ Route::get('/servicios', [ServiciosController::class, 'index'])->name('services'
 Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('mantenimiento');
 Route::get('/nosotros', [NosotrosController::class, 'index'])->name('about');
 Route::get('/instalaciones', [InstalacionesController::class, 'index'])->name('instalaciones');
+
+
+//Formulario
+Route::get('/instalaciones', [ServicioController::class, 'create'])->name('instalaciones');
+Route::post('/instalaciones', [ServicioController::class, 'store'])->name('instalaciones.store');
+
+//Productos
+Route::get('/instalaciones', [ProductoController::class, 'index'])->name('instalaciones');
