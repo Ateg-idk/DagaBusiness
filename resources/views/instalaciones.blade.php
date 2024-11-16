@@ -99,7 +99,7 @@
             <label for="servicio">Servicio:</label>
             <select id="servicio" name="servicio" class="form-control" required>
                 <option value="Seleccione una Opción">Seleccione una Opción</option>
-                <option value="Cámaras">Instalación de cámaras</option>
+                <option value="Instalación de cámaras">Instalación de cámaras</option>
                 <option value="Controles">Controles</option>
                 <option value="Componentes Extras">Componentes Extras</option>
                 <option value="Intercomunicadores">Intercomunicadores</option>

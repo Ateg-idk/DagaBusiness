@@ -23,7 +23,7 @@ class ServicioController
         'apellidos' => 'required',
         'email' => 'required|email',
         'telefono' => 'required',
-        'servicio' => 'required|in:Cámara,Controles,Componentes Extras,Intercomunicadores',
+        'servicio' => 'required|in:Instalación de cámaras,Controles,Componentes Extras,Intercomunicadores',
         'descripcion' => 'required',
     ]);
 
