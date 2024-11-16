@@ -2,66 +2,131 @@
 @section('title', 'Mantenimiento - Daga Soluciones Técnicas')
 
 @section('content')
- <!-- Sección de Mantenimiento -->
- <section class="maintenance-section">
-        <h1>Mantenimiento</h1>
-        <div class="filter-container">
-            <div class="filter-box">
-                <label>Filtrar por:</label>
-                <input type="checkbox"> Puertas<br>
-                <input type="checkbox"> Cámaras<br>
-                <input type="checkbox"> Sirenas<br>
-                <input type="checkbox"> Componentes extras<br>
-                <button>Aplicar</button>
-            </div>
-            <div>
-                <label>Ordenar por:</label>
-                <select>
-                    <option>Relevancia</option>
-                    <option>Precio</option>
-                    <option>Popularidad</option>
-                </select>
+ <!-- Contenedor principal con dos columnas: Filtros y Productos -->
+<div class="container">
+    <div class="row">
+        <!-- Columna de filtros (Sidebar) -->
+        <div class="col-md-3">
+            <div class="filter-container" style=" margin-top: 60px;">
+                <div class="filter-box">
+                    <h3>Filtrar por:</h3>
+                    <input type="checkbox"> Puertas<br>
+                    <input type="checkbox"> Cámaras<br>
+                    <input type="checkbox"> Sensores<br>
+                    <input type="checkbox"> Componentes extras<br>
+                    <button class="btn btn-primary">Aplicar</button>
+                </div>
             </div>
         </div>
-        <div class="products-container">
-            <div class="product-card">
-                <img src="path_to_image" alt="Puertas">
-                <h2>Puertas</h2>
-                <p>Mantenimiento de puerta eléctrica</p>
-                <a href="#">Cotizar</a>
+
+        <!-- Columna de productos -->
+        <div class="col-md-9">
+            <section class="installations-section">
+                <h1>Mantenimiento</h1>
+                
+                <!-- Filtro de ordenación -->
+                <div>
+                    <label>Ordenar por:</label>
+                    <select>
+                        <option>Relevancia</option>
+                        <option>Precio</option>
+                        <option>Popularidad</option>
+                    </select>
+                </div>
+                <br/>
+                <!-- Productos en 4 columnas -->
+                <div class="container">
+                    <div class="row">
+                        @foreach($mantenimientos as $mantenimiento)
+                            <div class="col-md-3 col-sm-6 mb-4">
+                                <div class="product-card">
+                                    <!-- Mostrar la imagen del producto -->
+                                    <img src="{{ asset($mantenimiento->imagen) }}" alt="{{ $mantenimiento->nombre }}" class="img-fluid">
+                                    <h2>{{ $mantenimiento->nombre }}</h2>
+                                    <p>{{ $mantenimiento->descripcion }}</p>
+                                    
+                                    <a href="#quote-form" class="btn btn-primary quote-button" >Cotizar</a>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<!-- Formulario de Contacto -->
+<section id="quote-form" class="contact-form-section container" style="max-width: 600px; margin: auto; padding: 20px;">
+    <h2 class="text-center">¿Tienes alguna consulta o necesitas más información?</h2>
+
+    <form action="{{ route('instalaciones.store') }}" method="POST" class="contact-form">
+        @csrf
+        <div class="form-row">
+            <!-- Nombres -->
+            <div class="form-group col-md-6 col-sm-3 mb-2">
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" placeholder="Nombres" class="form-control"
+                    pattern="[A-Za-záéíóúÁÉÍÓÚÑñ\s]+" title="Solo se permiten letras" required>
             </div>
-            <div class="product-card">
-                <img src="path_to_image" alt="Cámaras">
-                <h2>Cámaras</h2>
-                <p>Mantenimiento cámaras de seguridad</p>
-                <a href="#">Cotizar</a>
-            </div>
-            <div class="product-card">
-                <img src="path_to_image" alt="Alarmas">
-                <h2>Alarmas - Incendios</h2>
-                <p>Sistemas contra incendios</p>
-                <a href="#">Cotizar</a>
-            </div>
-            <div class="product-card">
-                <img src="path_to_image" alt="Monitores">
-                <h2>Monitores</h2>
-                <p>Monitores con sistemas de seguridad</p>
-                <a href="#">Cotizar</a>
-            </div>
-            <div class="product-card">
-                <img src="path_to_image" alt="Sirenas">
-                <h2>Sirenas - Incendios</h2>
-                <p>Mantenimiento contra incendios</p>
-                <a href="#">Cotizar</a>
-            </div>
-            <div class="product-card">
-                <img src="path_to_image" alt="Porteros">
-                <h2>Porteros</h2>
-                <p>Mantenimiento de porteros electrónicos</p>
-                <a href="#">Cotizar</a>
+            <!-- Apellidos -->
+            <div class="form-group col-md-6 col-sm-3 mb-2">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" class="form-control"
+                    pattern="[A-Za-záéíóúÁÉÍÓÚÑñ\s]+" title="Solo se permiten letras" required>
             </div>
         </div>
-    </section>
+
+        <div class="form-row">
+            <!-- Email -->
+            <div class="form-group col-md-6">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" class="form-control" required>
+            </div>
+
+            <!-- Teléfono -->
+            <div class="form-group col-md-6">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" class="form-control"
+                    pattern="\d{9}" title="El teléfono debe tener 9 cifras" required maxlength="9"
+                    oninput="this.value = this.value.replace(/[^\d]/g, '').slice(0, 9)">
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="servicio">Servicio:</label>
+            <select id="servicio" name="servicio" class="form-control" required>
+                <option value="Seleccione una Opción">Seleccione una Opción</option>
+                <option value="Instalación de cámaras">Instalación de cámaras</option>
+                <option value="Controles">Controles</option>
+                <option value="Componentes Extras">Componentes Extras</option>
+                <option value="Intercomunicadores">Intercomunicadores</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" name="descripcion" rows="4" placeholder="Describe tu necesidad en seguridad aquí"
+                class="form-control" required></textarea>
+        </div>
+        <br/>
+        <div class="text-center">
+            <button type="submit" class="btn btn-warning">Solicitar Información</button>
+        </div>
+    </form>
+</section>
+
+@if(session('success'))
+<script>
+alert('Consulta enviada correctamente');
+</script>
+@endif
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kQ9kXc+jFj7I+vL4f64A9zzxsb5c5yWA5NQnLbzzDfjmpLl1vw6Oe4cFc5S3rm33" crossorigin="anonymous">
+</script>
+
 
     <!-- Footer -->
     <footer>
