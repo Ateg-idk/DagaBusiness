@@ -45,4 +45,18 @@ class ProductoController
 
         return redirect()->route('instalaciones.index')->with('success', 'Producto creado con éxito');
     }
+    public function filter(Request $request)
+    {
+        // Obtener las categorías seleccionadas desde el formulario
+        $categorias = $request->input('categorias', []);
+
+        // Filtrar productos según las categorías seleccionadas
+        $productos = Producto::when(!empty($categorias), function ($query) use ($categorias) {
+            $query->whereIn('filtro', $categorias); // Aquí 'filtro' es la columna de tu base de datos que contiene la categoría
+        })->get();
+
+        return view('instalaciones', compact('productos')); // Retornar los productos filtrados a la misma vista
+    }
+
+
 }

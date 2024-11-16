@@ -103,5 +103,5 @@ Route::post('/instalaciones', [ServicioController::class, 'store'])->name('insta
 
 //Productos
 Route::get('/instalaciones', [ProductoController::class, 'index'])->name('instalaciones');
-
+Route::post('/instalaciones/filter', [ProductoController::class, 'filter'])->name('instalaciones.filter');
 Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('mantenimiento');

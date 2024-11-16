@@ -18,32 +18,32 @@
     <div class="row">
         <!-- Columna de filtros (Sidebar) -->
         <div class="col-md-3">
-            <div class="filter-container" style=" margin-top: 60px;">
+            <div class="filter-container" style="margin-top: 60px;">
                 <div class="filter-box">
                     <h3>Filtrar por:</h3>
-                    <input type="checkbox"> Intercomunicadores<br>
-                    <input type="checkbox"> Cámaras<br>
-                    <input type="checkbox"> Controles<br>
-                    <input type="checkbox"> Componentes extras<br>
-                    <button class="btn btn-primary">Aplicar</button>
+                    <form action="{{ route('instalaciones.filter') }}" method="POST">
+                        @csrf
+                        <label>
+                            <input type="checkbox" name="categorias[]" value="Intercomunicadores"> Intercomunicadores
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="categorias[]" value="Cámaras"> Cámaras
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="categorias[]" value="Controles"> Controles
+                        </label><br>
+                        <label>
+                            <input type="checkbox" name="categorias[]" value="Componentes extras"> Componentes extras
+                        </label><br>
+                        <button type="submit" class="btn btn-primary">Aplicar</button>
+                    </form>
                 </div>
             </div>
         </div>
-
         <!-- Columna de productos -->
         <div class="col-md-9">
             <section class="installations-section">
                 <h1>Instalaciones</h1>
-                
-                <!-- Filtro de ordenación -->
-                <div>
-                    <label>Ordenar por:</label>
-                    <select>
-                        <option>Relevancia</option>
-                        <option>Precio</option>
-                        <option>Popularidad</option>
-                    </select>
-                </div>
                 <br/>
                 <!-- Productos en 4 columnas -->
                 <div class="container">
