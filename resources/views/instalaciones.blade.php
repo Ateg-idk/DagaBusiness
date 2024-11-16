@@ -3,6 +3,16 @@
 
 @section('content')
 
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QCM8ZG3KLP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QCM8ZG3KLP');
+</script>
+
 <!-- Contenedor principal con dos columnas: Filtros y Productos -->
 <div class="container">
     <div class="row">
@@ -46,7 +56,7 @@
                                     <h2>{{ $producto->nombre }}</h2>
                                     <p>{{ $producto->descripcion }}</p>
                                     
-                                    <a href="#quote-form" class="btn btn-primary quote-button" >Cotizar</a>
+                                    <a href="#quote-form" class="btn btn-primary quote-button">Cotizar</a>
                                 </div>
                             </div>
                         @endforeach
@@ -61,14 +71,15 @@
 <section id="quote-form" class="contact-form-section container" style="max-width: 600px; margin: auto; padding: 20px;">
     <h2 class="text-center">¿Tienes alguna consulta o necesitas más información?</h2>
 
-    <form action="{{ route('instalaciones.store') }}" method="POST" class="contact-form">
+    <form id="contactForm" action="{{ route('instalaciones.store') }}" method="POST" class="contact-form">
         @csrf
         <div class="form-row">
             <!-- Nombres -->
             <div class="form-group col-md-6 col-sm-3 mb-2">
                 <label for="nombres">Nombres:</label>
                 <input type="text" id="nombres" name="nombres" placeholder="Nombres" class="form-control"
-                    pattern="[A-Za-záéíóúÁÉÍÓÚÑñ\s]+" title="Solo se permiten letras" required>
+                    pattern="[A-Za-záéíóúÁÉÍÓÚÑñ\s]+" title="Solo se permiten letras" required
+                    onfocus="gtag('event', 'Formulario Interactuado', {'event_category': 'Formulario', 'event_label': 'Formulario de Instalaciones'})">
             </div>
             <!-- Apellidos -->
             <div class="form-group col-md-6 col-sm-3 mb-2">
@@ -92,7 +103,6 @@
                     pattern="\d{9}" title="El teléfono debe tener 9 cifras" required maxlength="9"
                     oninput="this.value = this.value.replace(/[^\d]/g, '').slice(0, 9)">
             </div>
-
         </div>
 
         <div class="form-group">
@@ -113,7 +123,10 @@
         </div>
         <br/>
         <div class="text-center">
-            <button type="submit" class="btn btn-warning">Solicitar Información</button>
+            <button type="submit" class="btn btn-warning"
+                onclick="gtag('event', 'Formulario Completado', {'event_category': 'Formulario', 'event_label': 'Formulario de Instalaciones'})">
+                Solicitar Información
+            </button>
         </div>
     </form>
 </section>
@@ -123,6 +136,21 @@
 alert('Consulta enviada correctamente');
 </script>
 @endif
+
+<script>
+  window.addEventListener('beforeunload', function () {
+    const form = document.querySelector('#contactForm');
+    if (form) {
+      const formFields = Array.from(form.elements).some(field => field.value.trim() !== '');
+      if (formFields) {
+        gtag('event', 'Formulario Abandonado', {
+          'event_category': 'Formulario',
+          'event_label': 'Formulario de Instalaciones'
+        });
+      }
+    }
+  });
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kQ9kXc+jFj7I+vL4f64A9zzxsb5c5yWA5NQnLbzzDfjmpLl1vw6Oe4cFc5S3rm33" crossorigin="anonymous">
