@@ -151,7 +151,37 @@ alert('Consulta enviada correctamente');
     }
   });
 </script>
+<script>
+    let formStartTime = null;
 
+    // Inicia el temporizador cuando el usuario comienza a interactuar con el formulario
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.querySelector('#contactForm');
+        if (form) {
+            form.addEventListener('focusin', () => {
+                if (!formStartTime) {
+                    formStartTime = new Date();
+                }
+            });
+
+            // Envía el tiempo transcurrido cuando el formulario se envía
+            form.addEventListener('submit', () => {
+                if (formStartTime) {
+                    const formEndTime = new Date();
+                    const timeTaken = Math.round((formEndTime - formStartTime) / 1000); // Tiempo en segundos
+                    
+                    // Enviar evento a Google Analytics
+                    gtag('event', 'Formulario Enviado', {
+                        'event_category': 'Formulario',
+                        'event_label': 'Formulario de Instalaciones',
+                        'value': timeTaken, // Tiempo en segundos
+                        'non_interaction': false
+                    });
+                }
+            });
+        }
+    });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kQ9kXc+jFj7I+vL4f64A9zzxsb5c5yWA5NQnLbzzDfjmpLl1vw6Oe4cFc5S3rm33" crossorigin="anonymous">
 </script>
