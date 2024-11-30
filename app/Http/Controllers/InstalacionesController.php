@@ -31,4 +31,16 @@ class InstalacionesController extends Controller
  
          return view('instalaciones', compact('productos'));
      }
+
+     public function showProducto($id)
+     {
+         // Buscar el producto por su ID
+         $producto = Producto::findOrFail($id); // Esto arroja un error si el producto no existe
+     
+         // Retornar la vista con el producto
+         return view('detalles', compact('producto'));
+     }
+     
+     
+
 }

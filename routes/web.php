@@ -105,3 +105,9 @@ Route::post('/instalaciones', [ServicioController::class, 'store'])->name('insta
 Route::get('/instalaciones', [ProductoController::class, 'index'])->name('instalaciones');
 Route::post('/instalaciones/filter', [ProductoController::class, 'filter'])->name('instalaciones.filter');
 Route::get('/mantenimiento', [MantenimientoController::class, 'index'])->name('mantenimiento');
+
+Route::get('/instalaciones/producto/{id}', [InstalacionesController::class, 'showProducto'])->name('instalaciones.producto.show');
+// Ruta para la vista de instalaciones
+Route::get('/instalaciones', [App\Http\Controllers\InstalacionesController::class, 'index'])->name('instalaciones');
+
+
