@@ -6,11 +6,14 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QCM8ZG3KLP"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-QCM8ZG3KLP');
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
+
+gtag('config', 'G-QCM8ZG3KLP');
 </script>
 
 <!-- Contenedor principal con dos columnas: Filtros y Productos -->
@@ -44,21 +47,29 @@
         <div class="col-md-9">
             <section class="installations-section">
                 <h1>Instalaciones</h1>
-                <br/>
+                <br />
                 <!-- Productos en 4 columnas -->
                 <div class="container">
                     <div class="row">
                         @foreach($productos as $producto)
-                            <div class="col-md-3 col-sm-6 mb-4">
-                                <div class="product-card">
-                                    <!-- Mostrar la imagen del producto -->
-                                    <img src="{{ asset($producto->imagen) }}" alt="{{ $producto->nombre }}" class="img-fluid">
-                                    <h2>{{ $producto->nombre }}</h2>
-                                    <p>{{ $producto->descripcion }}</p>
-                                    
-                                    <a href="#quote-form" class="btn btn-primary quote-button">Cotizar</a>
-                                </div>
+                        <div class="col-md-3 col-sm-6 mb-4">
+                            <div class="product-card">
+                                <!-- Mostrar la imagen del producto -->
+                                <img src="{{ asset($producto->imagen) }}" alt="{{ $producto->nombre }}"
+                                    class="img-fluid">
+                                <h2>{{ $producto->nombre }}</h2>
+                                
+
+                                <a href="#quote-form" class="btn btn-primary quote-button">Cotizar</a>
+
+                                <a href="{{ route('instalaciones.producto.show', $producto->id) }}"
+                                    class="btn btn-info">
+                                    Ver detalles
+                                </a>
+
+
                             </div>
+                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -121,7 +132,7 @@
             <textarea id="descripcion" name="descripcion" rows="4" placeholder="Describe tu necesidad en seguridad aquí"
                 class="form-control" required></textarea>
         </div>
-        <br/>
+        <br />
         <div class="text-center">
             <button type="submit" class="btn btn-warning"
                 onclick="gtag('event', 'Formulario Completado', {'event_category': 'Formulario', 'event_label': 'Formulario de Instalaciones'})">
@@ -138,53 +149,54 @@ alert('Consulta enviada correctamente');
 @endif
 
 <script>
-  window.addEventListener('beforeunload', function () {
+window.addEventListener('beforeunload', function() {
     const form = document.querySelector('#contactForm');
     if (form) {
-      const formFields = Array.from(form.elements).some(field => field.value.trim() !== '');
-      if (formFields) {
-        gtag('event', 'Formulario Abandonado', {
-          'event_category': 'Formulario',
-          'event_label': 'Formulario de Instalaciones'
-        });
-      }
-    }
-  });
-</script>
-<script>
-    let formStartTime = null;
-
-    // Inicia el temporizador cuando el usuario comienza a interactuar con el formulario
-    document.addEventListener('DOMContentLoaded', () => {
-        const form = document.querySelector('#contactForm');
-        if (form) {
-            form.addEventListener('focusin', () => {
-                if (!formStartTime) {
-                    formStartTime = new Date();
-                    console.log('Formulario iniciado: ' + formStartTime);
-                }
-            });
-
-            // Envía el tiempo transcurrido cuando el formulario se envía
-            form.addEventListener('submit', (event) => {
-                if (formStartTime) {
-                    const formEndTime = new Date();
-                    const timeTaken = Math.round((formEndTime - formStartTime) / 1000); // Tiempo en segundos
-
-                    // Verifica que el tiempo esté correcto antes de enviarlo
-                    console.log('Tiempo tomado: ' + timeTaken + ' segundos');
-
-                    // Enviar evento a Google Analytics
-                    gtag('event', 'Formulario Enviado', {
-                        'event_category': 'Formulario',
-                        'event_label': 'Formulario de Instalaciones',
-                        'value': timeTaken, // Tiempo en segundos
-                        'non_interaction': false
-                    });
-                }
+        const formFields = Array.from(form.elements).some(field => field.value.trim() !== '');
+        if (formFields) {
+            gtag('event', 'Formulario Abandonado', {
+                'event_category': 'Formulario',
+                'event_label': 'Formulario de Instalaciones'
             });
         }
-    });
+    }
+});
+</script>
+<script>
+let formStartTime = null;
+
+// Inicia el temporizador cuando el usuario comienza a interactuar con el formulario
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('#contactForm');
+    if (form) {
+        form.addEventListener('focusin', () => {
+            if (!formStartTime) {
+                formStartTime = new Date();
+                console.log('Formulario iniciado: ' + formStartTime);
+            }
+        });
+
+        // Envía el tiempo transcurrido cuando el formulario se envía
+        form.addEventListener('submit', (event) => {
+            if (formStartTime) {
+                const formEndTime = new Date();
+                const timeTaken = Math.round((formEndTime - formStartTime) /
+                1000); // Tiempo en segundos
+
+                // Verifica que el tiempo esté correcto antes de enviarlo
+                console.log('Tiempo tomado: ' + timeTaken + ' segundos');
+
+                // Enviar evento a Google Analytics
+                gtag('event', 'Formulario Enviado', {
+                    'event_category': 'Formulario',
+                    'event_label': 'Formulario de Instalaciones',
+                    'value': timeTaken, // Tiempo en segundos
+                    'non_interaction': false
+                });
+            }
+        });
+    }
+});
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

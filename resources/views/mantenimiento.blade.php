@@ -43,7 +43,7 @@
                                     <!-- Mostrar la imagen del producto -->
                                     <img src="{{ asset($mantenimiento->imagen) }}" alt="{{ $mantenimiento->nombre }}" class="img-fluid">
                                     <h2>{{ $mantenimiento->nombre }}</h2>
-                                    <p>{{ $mantenimiento->descripcion }}</p>
+                                    
                                     
                                     <a href="#quote-form" class="btn btn-primary quote-button" >Cotizar</a>
                                 </div>
