@@ -6,6 +6,7 @@
     <div class="divider"></div>
 
     <!-- Sección de presentación -->
+    <div id="contenido-lector">
     <section class="presentation-section">
         <div class="presentation-container">
             <div class="presentation-logo">
@@ -41,6 +42,7 @@
             <p>Sábado: 09:00 a.m. – 01:00 p.m.</p>
         </div>
     </section>
+</div> 
 
     <!-- Separador visual -->
     <div class="divider"></div>
@@ -77,4 +79,7 @@
                 </ul>
             </div>
     </footer>
+
+    <script src="{{ asset('js/lector.js') }}"></script>
+    
 @endsection
