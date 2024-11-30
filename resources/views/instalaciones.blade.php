@@ -79,6 +79,7 @@ gtag('config', 'G-QCM8ZG3KLP');
 </div>
 
 <!-- Formulario de Contacto -->
+<div id="contenido-lector">
 <section id="quote-form" class="contact-form-section container" style="max-width: 600px; margin: auto; padding: 20px;">
     <h2 class="text-center">¿Tienes alguna consulta o necesitas más información?</h2>
 
@@ -139,6 +140,7 @@ gtag('config', 'G-QCM8ZG3KLP');
                 Solicitar Información
             </button>
         </div>
+    </div>
     </form>
 </section>
 
@@ -233,5 +235,5 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
     <p>DAGA Soluciones Técnicas copyright 2024</p>
 </footer>
-
+<script src="{{ asset('js/lector.js') }}"></script>
 @endsection

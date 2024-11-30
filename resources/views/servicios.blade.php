@@ -3,6 +3,7 @@
 
 @section('content')
     <section class="services-section">
+        <div id="contenido-lector">
         <h1>Servicios</h1>
         <div class="services-container">
             <div class="service-card">
@@ -29,5 +30,7 @@
                 <a href="{{ route('mantenimiento') }}">Más información</a>
             </div>
         </div>
+    </div>
     </section>
+    <script src="{{ asset('js/lector.js') }}"></script>
 @endsection

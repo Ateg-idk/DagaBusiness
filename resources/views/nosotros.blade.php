@@ -3,6 +3,7 @@
 
 @section('content')
     <section class="about-section">
+        <div id="contenido-lector">
         <h1>NOSOTROS</h1>
         <div class="about-content">
             <div class="about-text">
@@ -24,5 +25,7 @@
                 <img src="{{ asset('imagenes/daga2.png') }}" alt="Logo Daga">
             </div>
         </div>
+    </div>
     </section>
+    <script src="{{ asset('js/lector.js') }}"></script>
 @endsection
